@@ -98,3 +98,107 @@ section p {
     line-height: 1.6;
 }
 
+/* Root Variables */
+:root {
+    --previous-section-divider-offset: 0px;
+    --primary-button-rounded-border-top-left-radius: 6.8px;
+    --primary-button-rounded-border-top-right-radius: 6.8px;
+    --primary-button-rounded-border-bottom-left-radius: 6.8px;
+    --primary-button-rounded-border-bottom-right-radius: 6.8px;
+    --primaryButtonPadding: .8em;
+    --primary-button-padding-x: .2em;
+    --primary-button-padding-y: 2.2em;
+    --primary-button-stroke: 1px;
+    --secondary-button-rounded-border-top-left-radius: 6.8px;
+    --secondary-button-rounded-border-top-right-radius: 6.8px;
+    --secondary-button-rounded-border-bottom-left-radius: 6.8px;
+    --secondary-button-rounded-border-bottom-right-radius: 6.8px;
+    --secondary-button-padding-x: 1.3em;
+    --secondary-button-padding-y: 1.3em;
+    --secondary-button-stroke: 2px;
+    --tertiary-button-rounded-border-top-left-radius: 6.8px;
+    --tertiary-button-rounded-border-top-right-radius: 6.8px;
+    --tertiary-button-rounded-border-bottom-left-radius: 6.8px;
+    --tertiary-button-rounded-border-bottom-right-radius: 6.8px;
+    --tertiary-button-padding-x: 1.336em;
+    --tertiary-button-padding-y: .8em;
+    --tertiary-button-stroke: 2px;
+    --base-font-size: 16px;
+    --siteBackgroundColor: hsla(var(--black-hsl), 1);
+    --paragraphMediumColor: hsla(var(--black-hsl), 1);
+    /* Additional variables can be added here */
+}
+
+/* Body and General Styles */
+body {
+    background-color: var(--siteBackgroundColor);
+    color: var(--paragraphMediumColor);
+    font-size: var(--base-font-size);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+html, body {
+    font-size: var(--base-font-size);
+}
+
+/* Page Section Styles */
+.page-section {
+    color: var(--paragraphMediumColor);
+}
+
+.page-section .section-border {
+    background-color: var(--siteBackgroundColor);
+}
+
+.section-border {
+    position: absolute;
+    top: calc(-1 * var(--previous-section-divider-offset, 0px));
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.has-section-divider .section-border {
+    transform: translateZ(0);
+}
+
+/* Data Section Specific Styling */
+[data-section-id="64ada8c250a69e6fb6e05500"] {
+    --divider-height: 6vw;
+    --z-index: 2;
+    --previous-section-divider-offset: 6vw;
+}
+
+/* Site Wrapper */
+.site-wrapper, .sqs-catalog-item-list {
+    font-family: var(--body-font-font-family);
+    font-style: var(--body-font-font-style);
+    font-weight: var(--body-font-font-weight);
+    line-height: var(--body-font-line-height);
+    letter-spacing: var(--body-font-letter-spacing);
+    text-transform: var(--body-font-text-transform);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px), screen and (max-width: calc(1427px)) and (orientation: landscape) {
+    .site-wrapper, .sqs-catalog-item-list {
+        font-size: calc((var(--normal-text-size-value) - 1) * 1.2vw + 1rem);
+    }
+}
+
+/* Custom Properties Support */
+@supports (--test-custom-property: true) {
+    body {
+        --sqs-site-gutter: 1vw;
+        --sqs-mobile-site-gutter: 6vw;
+        --sqs-site-max-width: 1400px;
+        --sqs-focus-outline-width: 2px;
+        --sqs-focus-outline-style: solid;
+        --sqs-focus-outline-offset-default: 4px;
+        --sqs-focus-outline-offset-zero: 0;
+        --sqs-focus-outline-offset-flush: -2px;
+        --sqs-focus-outline-offset-inset: -4px;
+    }
+}
